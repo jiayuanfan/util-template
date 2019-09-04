@@ -6,10 +6,7 @@
 		_readyEvent = document.createEvent('Event'),
 		_readyLoadFlag = false,
 		_readyCb = null,
-		_appName = prevLoadOpt['appName'],
-		_repName = prevLoadOpt['repName'],
-		_appVersion = prevLoadOpt['appVersion'],
-		_appDir = prevLoadOpt['appDir'];
+		_appPath = prevLoadOpt['appPath'];
 
 	// 需要加载的资源
 	type ResourceList = string[];
@@ -18,15 +15,15 @@
 		lkList: ResourceList = prevLoadOpt['appLkList'];
 
 	// 资源动态变量
-	const _libHost = prevLoadOpt['cdnHost'],
-		_versionStr = _appVersion === 'last' ? `?v=${String(new Date().getTime())}` : '';
+	const _libHost = prevLoadOpt['appHost'],
+		_versionStr = `?v=${String(new Date().getTime())}`;
 
 	/**
 	 * 资源拼装完整路径
 	 * @param rawList
 	 */
 	const _concatResource = (rawList: ResourceList): ResourceList =>
-		rawList.map((fileStr: string) => `/${_repName}/${_appName}/${_appVersion}/${_appDir}/${fileStr}`);
+		rawList.map((fileStr: string) => `${_appPath}/${fileStr}`);
 
 	/**
 	 * 加载js

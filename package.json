@@ -36,9 +36,5 @@
 		"rollup-plugin-uglify": "^6.0.2",
 		"tslib": "^1.10.0",
 		"typescript": "^3.3.3333"
-	},
-	"xpm3": {
-		"rep": "sr012018",
-		"output": "umd/"
 	}
 }
