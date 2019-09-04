@@ -1,0 +1,44 @@
+{
+	"name": "util-template",
+	"version": "0.0.1",
+	"main": "umd/index.js",
+	"typings": "typings/index.d.ts",
+	"files": [
+		"README.md",
+		"umd/*",
+		"typings/*",
+		"package.json"
+	],
+	"private": false,
+	"author": "bug.fan@ximalaya.com",
+	"license": "ISC",
+	"dependencies": {},
+	"scripts": {
+		"build:test": "BUILD_ENV=test yarn ts-build",
+		"build:uat": "BUILD_ENV=uat yarn ts-build",
+		"build:prod": "BUILD_ENV=production yarn ts-build",
+		"ts-build": "yarn clean && yarn build-start && yarn build-main",
+		"build-start": "rollup -c deploys/start.config.js",
+		"build-main": "rollup -c deploys/main.config.js",
+		"clean": "rm -rf ./umd"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.4.0",
+		"@types/node": "^11.13.0",
+		"awesome-typescript-loader": "^5.2.1",
+		"rollup": "^1.7.3",
+		"rollup-plugin-babel": "^4.3.3",
+		"rollup-plugin-commonjs": "^10.0.2",
+		"rollup-plugin-json": "^4.0.0",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-replace": "^2.2.0",
+		"rollup-plugin-typescript": "^1.0.1",
+		"rollup-plugin-uglify": "^6.0.2",
+		"tslib": "^1.10.0",
+		"typescript": "^3.3.3333"
+	},
+	"xpm3": {
+		"rep": "sr012018",
+		"output": "umd/"
+	}
+}
